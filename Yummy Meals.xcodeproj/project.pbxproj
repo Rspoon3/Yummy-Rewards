@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		A635132428E87F6900B55566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132328E87F6900B55566 /* AppDelegate.swift */; };
 		A635132628E87F6900B55566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132528E87F6900B55566 /* SceneDelegate.swift */; };
-		A635132828E87F6900B55566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132728E87F6900B55566 /* ViewController.swift */; };
+		A635132828E87F6900B55566 /* SplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132728E87F6900B55566 /* SplitVC.swift */; };
 		A635132B28E87F6900B55566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A635132928E87F6900B55566 /* Main.storyboard */; };
 		A635132D28E87F6A00B55566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A635132C28E87F6A00B55566 /* Assets.xcassets */; };
 		A635133028E87F6A00B55566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A635132E28E87F6A00B55566 /* LaunchScreen.storyboard */; };
+		A635134628E88CB700B55566 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = A635134528E88CB700B55566 /* Networking */; };
+		A635134828E88DD400B55566 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635134728E88DD400B55566 /* Category.swift */; };
+		A6CE01AE28E89B1A00EEAA10 /* SidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */; };
+		A6CE01B128E8A3CF00EEAA10 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */; };
+		A6CE01B328E8A50000EEAA10 /* YummySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B228E8A50000EEAA10 /* YummySpinner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A635132028E87F6900B55566 /* Yummy Meals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yummy Meals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A635132328E87F6900B55566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A635132528E87F6900B55566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A635132728E87F6900B55566 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A635132728E87F6900B55566 /* SplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitVC.swift; sourceTree = "<group>"; };
 		A635132A28E87F6900B55566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A635132C28E87F6A00B55566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A635132F28E87F6A00B55566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A635133128E87F6A00B55566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A635134728E88DD400B55566 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVC.swift; sourceTree = "<group>"; };
+		A6CE01AF28E89BB800EEAA10 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		A6CE01B228E8A50000EEAA10 /* YummySpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummySpinner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A635134628E88CB700B55566 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +51,10 @@
 		A635131728E87F6900B55566 = {
 			isa = PBXGroup;
 			children = (
+				A6CE01AF28E89BB800EEAA10 /* Networking */,
 				A635132228E87F6900B55566 /* Yummy Meals */,
 				A635132128E87F6900B55566 /* Products */,
+				A635134428E88CB700B55566 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +71,32 @@
 			children = (
 				A635132328E87F6900B55566 /* AppDelegate.swift */,
 				A635132528E87F6900B55566 /* SceneDelegate.swift */,
-				A635132728E87F6900B55566 /* ViewController.swift */,
+				A635132728E87F6900B55566 /* SplitVC.swift */,
+				A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */,
+				A6CE01B228E8A50000EEAA10 /* YummySpinner.swift */,
+				A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */,
+				A635134928E88DD800B55566 /* Models */,
 				A635132928E87F6900B55566 /* Main.storyboard */,
 				A635132C28E87F6A00B55566 /* Assets.xcassets */,
 				A635132E28E87F6A00B55566 /* LaunchScreen.storyboard */,
 				A635133128E87F6A00B55566 /* Info.plist */,
 			);
 			path = "Yummy Meals";
+			sourceTree = "<group>";
+		};
+		A635134428E88CB700B55566 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A635134928E88DD800B55566 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A635134728E88DD400B55566 /* Category.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +115,9 @@
 			dependencies = (
 			);
 			name = "Yummy Meals";
+			packageProductDependencies = (
+				A635134528E88CB700B55566 /* Networking */,
+			);
 			productName = "Yummy Meals";
 			productReference = A635132028E87F6900B55566 /* Yummy Meals.app */;
 			productType = "com.apple.product-type.application";
@@ -138,9 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A635132828E87F6900B55566 /* ViewController.swift in Sources */,
+				A6CE01B128E8A3CF00EEAA10 /* UIViewController+Extension.swift in Sources */,
+				A6CE01AE28E89B1A00EEAA10 /* SidebarVC.swift in Sources */,
+				A635132828E87F6900B55566 /* SplitVC.swift in Sources */,
 				A635132428E87F6900B55566 /* AppDelegate.swift in Sources */,
+				A6CE01B328E8A50000EEAA10 /* YummySpinner.swift in Sources */,
 				A635132628E87F6900B55566 /* SceneDelegate.swift in Sources */,
+				A635134828E88DD400B55566 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +397,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A635134528E88CB700B55566 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A635131828E87F6900B55566 /* Project object */;
 }
