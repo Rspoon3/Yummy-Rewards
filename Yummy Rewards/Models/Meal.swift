@@ -95,7 +95,7 @@ struct Meal: Codable, Hashable {
     
     
     //MARK: - Preview Data
-    static let all = MealResponse.previewData.meals
+    static let dessert = MealResponse.dessert.meals
     
     static let apamBalik = Bundle.main.decode(MealResponse.self,
                                               from: "apamBalik.json").meals.first

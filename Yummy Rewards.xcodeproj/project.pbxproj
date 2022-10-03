@@ -34,6 +34,8 @@
 		A697531828EAA23600FEA825 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A697531728EAA23600FEA825 /* CategoryResponse.swift */; };
 		A697531A28EAA24100FEA825 /* MealResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A697531928EAA24100FEA825 /* MealResponse.swift */; };
 		A697531C28EAA28700FEA825 /* CacheStatusWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A697531B28EAA28700FEA825 /* CacheStatusWrapper.swift */; };
+		A697532628EAA8A100FEA825 /* Yummy_RewardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A697532528EAA8A100FEA825 /* Yummy_RewardsTests.swift */; };
+		A697532F28EAAB0A00FEA825 /* beefResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A697532E28EAAB0A00FEA825 /* beefResponse.json */; };
 		A6CE01AE28E89B1A00EEAA10 /* SidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */; };
 		A6CE01B128E8A3CF00EEAA10 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */; };
 		A6CE01B328E8A50000EEAA10 /* YummySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B228E8A50000EEAA10 /* YummySpinner.swift */; };
@@ -43,7 +45,7 @@
 		A6CE01C028E8A95A00EEAA10 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01BF28E8A95A00EEAA10 /* Bundle+Extension.swift */; };
 		A6CE01C428E8AC5C00EEAA10 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01C328E8AC5C00EEAA10 /* Sequence+Extension.swift */; };
 		A6CE01C628E8ACED00EEAA10 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01C528E8ACED00EEAA10 /* Meal.swift */; };
-		A6CE01C828E8AE0700EEAA10 /* mealsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A6CE01C728E8AE0700EEAA10 /* mealsResponse.json */; };
+		A6CE01C828E8AE0700EEAA10 /* dessertResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A6CE01C728E8AE0700EEAA10 /* dessertResponse.json */; };
 		A6CE01CA28E8B09700EEAA10 /* MealDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01C928E8B09700EEAA10 /* MealDetailsVC.swift */; };
 		A6CE01CC28E8B30500EEAA10 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01CB28E8B30500EEAA10 /* Ingredient.swift */; };
 		A6CE01CE28E8B60500EEAA10 /* apamBalik.json in Resources */ = {isa = PBXBuildFile; fileRef = A6CE01CD28E8B60500EEAA10 /* apamBalik.json */; };
@@ -51,6 +53,16 @@
 		A6CE01D428E8C57900EEAA10 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01D328E8C57900EEAA10 /* MealCell.swift */; };
 		A6CE01D728E8DC3300EEAA10 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01D628E8DC3300EEAA10 /* SearchVC.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A697532728EAA8A100FEA825 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A635131828E87F6900B55566 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A635131F28E87F6900B55566;
+			remoteInfo = "Yummy Rewards";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A635132028E87F6900B55566 /* Yummy Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yummy Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +93,9 @@
 		A697531728EAA23600FEA825 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		A697531928EAA24100FEA825 /* MealResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponse.swift; sourceTree = "<group>"; };
 		A697531B28EAA28700FEA825 /* CacheStatusWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStatusWrapper.swift; sourceTree = "<group>"; };
+		A697532328EAA8A100FEA825 /* Yummy RewardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yummy RewardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A697532528EAA8A100FEA825 /* Yummy_RewardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yummy_RewardsTests.swift; sourceTree = "<group>"; };
+		A697532E28EAAB0A00FEA825 /* beefResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beefResponse.json; sourceTree = "<group>"; };
 		A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVC.swift; sourceTree = "<group>"; };
 		A6CE01AF28E89BB800EEAA10 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -91,7 +106,7 @@
 		A6CE01BF28E8A95A00EEAA10 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		A6CE01C328E8AC5C00EEAA10 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		A6CE01C528E8ACED00EEAA10 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
-		A6CE01C728E8AE0700EEAA10 /* mealsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mealsResponse.json; sourceTree = "<group>"; };
+		A6CE01C728E8AE0700EEAA10 /* dessertResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dessertResponse.json; sourceTree = "<group>"; };
 		A6CE01C928E8B09700EEAA10 /* MealDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsVC.swift; sourceTree = "<group>"; };
 		A6CE01CB28E8B30500EEAA10 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		A6CE01CD28E8B60500EEAA10 /* apamBalik.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apamBalik.json; sourceTree = "<group>"; };
@@ -109,6 +124,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A697532028EAA8A100FEA825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +139,7 @@
 			children = (
 				A6CE01AF28E89BB800EEAA10 /* Networking */,
 				A635132228E87F6900B55566 /* Yummy Rewards */,
+				A697532428EAA8A100FEA825 /* Yummy RewardsTests */,
 				A635132128E87F6900B55566 /* Products */,
 				A635134428E88CB700B55566 /* Frameworks */,
 			);
@@ -126,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A635132028E87F6900B55566 /* Yummy Rewards.app */,
+				A697532328EAA8A100FEA825 /* Yummy RewardsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +190,14 @@
 				A6CE01B428E8A73200EEAA10 /* SidebarItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A697532428EAA8A100FEA825 /* Yummy RewardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A697532528EAA8A100FEA825 /* Yummy_RewardsTests.swift */,
+			);
+			path = "Yummy RewardsTests";
 			sourceTree = "<group>";
 		};
 		A6CE01B628E8A75000EEAA10 /* Views */ = {
@@ -226,7 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				A6CE01CD28E8B60500EEAA10 /* apamBalik.json */,
-				A6CE01C728E8AE0700EEAA10 /* mealsResponse.json */,
+				A697532E28EAAB0A00FEA825 /* beefResponse.json */,
+				A6CE01C728E8AE0700EEAA10 /* dessertResponse.json */,
 				A6CE01BD28E8A93600EEAA10 /* categoriesResponse.json */,
 			);
 			path = "Preview Content";
@@ -266,6 +299,24 @@
 			productReference = A635132028E87F6900B55566 /* Yummy Rewards.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A697532228EAA8A100FEA825 /* Yummy RewardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A697532928EAA8A100FEA825 /* Build configuration list for PBXNativeTarget "Yummy RewardsTests" */;
+			buildPhases = (
+				A697531F28EAA8A100FEA825 /* Sources */,
+				A697532028EAA8A100FEA825 /* Frameworks */,
+				A697532128EAA8A100FEA825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A697532828EAA8A100FEA825 /* PBXTargetDependency */,
+			);
+			name = "Yummy RewardsTests";
+			productName = "Yummy RewardsTests";
+			productReference = A697532328EAA8A100FEA825 /* Yummy RewardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -278,6 +329,10 @@
 				TargetAttributes = {
 					A635131F28E87F6900B55566 = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					A697532228EAA8A100FEA825 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = A635131F28E87F6900B55566;
 					};
 				};
 			};
@@ -295,6 +350,7 @@
 			projectRoot = "";
 			targets = (
 				A635131F28E87F6900B55566 /* Yummy Rewards */,
+				A697532228EAA8A100FEA825 /* Yummy RewardsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -304,12 +360,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6CE01C828E8AE0700EEAA10 /* mealsResponse.json in Resources */,
+				A6CE01C828E8AE0700EEAA10 /* dessertResponse.json in Resources */,
+				A697532F28EAAB0A00FEA825 /* beefResponse.json in Resources */,
 				A6CE01BE28E8A93600EEAA10 /* categoriesResponse.json in Resources */,
 				A6CE01CE28E8B60500EEAA10 /* apamBalik.json in Resources */,
 				A635133028E87F6A00B55566 /* LaunchScreen.storyboard in Resources */,
 				A635132D28E87F6A00B55566 /* Assets.xcassets in Resources */,
 				A635132B28E87F6900B55566 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A697532128EAA8A100FEA825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +423,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A697531F28EAA8A100FEA825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A697532628EAA8A100FEA825 /* Yummy_RewardsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A697532828EAA8A100FEA825 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A635131F28E87F6900B55566 /* Yummy Rewards */;
+			targetProxy = A697532728EAA8A100FEA825 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A635132928E87F6900B55566 /* Main.storyboard */ = {
@@ -555,6 +635,42 @@
 			};
 			name = Release;
 		};
+		A697532A28EAA8A100FEA825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SBS8ZBXB9U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buildinginbinary.Yummy-RewardsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yummy Rewards.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yummy Rewards";
+			};
+			name = Debug;
+		};
+		A697532B28EAA8A100FEA825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SBS8ZBXB9U;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buildinginbinary.Yummy-RewardsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yummy Rewards.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Yummy Rewards";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -572,6 +688,15 @@
 			buildConfigurations = (
 				A635133528E87F6A00B55566 /* Debug */,
 				A635133628E87F6A00B55566 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A697532928EAA8A100FEA825 /* Build configuration list for PBXNativeTarget "Yummy RewardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A697532A28EAA8A100FEA825 /* Debug */,
+				A697532B28EAA8A100FEA825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

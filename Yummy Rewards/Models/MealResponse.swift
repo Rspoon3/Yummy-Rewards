@@ -11,6 +11,9 @@ struct MealResponse: Decodable {
     let meals: [Meal]
     
     //MARK: - Preview Data
-    static let previewData = Bundle.main.decode(MealResponse.self,
-                                                from: "mealsResponse.json")
+    static let dessert = Bundle.main.decode(MealResponse.self,
+                                            from: "dessertResponse.json")
+    
+    static let beef = Bundle.main.decode(MealResponse.self,
+                                         from: "beefResponse.json")
 }
