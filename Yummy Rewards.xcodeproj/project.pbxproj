@@ -29,6 +29,7 @@
 		A69752F528EA8B5500FEA825 /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69752F428EA8B5500FEA825 /* TabVC.swift */; };
 		A69752F728EA8C8100FEA825 /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69752F628EA8C8100FEA825 /* CategoriesVC.swift */; };
 		A69752F928EA8F0F00FEA825 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69752F828EA8F0F00FEA825 /* CategoryCell.swift */; };
+		A69752FB28EA9BA900FEA825 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69752FA28EA9BA900FEA825 /* UIImageView+Extension.swift */; };
 		A6CE01AE28E89B1A00EEAA10 /* SidebarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */; };
 		A6CE01B128E8A3CF00EEAA10 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */; };
 		A6CE01B328E8A50000EEAA10 /* YummySpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE01B228E8A50000EEAA10 /* YummySpinner.swift */; };
@@ -72,6 +73,7 @@
 		A69752F428EA8B5500FEA825 /* TabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		A69752F628EA8C8100FEA825 /* CategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		A69752F828EA8F0F00FEA825 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		A69752FA28EA9BA900FEA825 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVC.swift; sourceTree = "<group>"; };
 		A6CE01AF28E89BB800EEAA10 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		A6CE01B028E8A3CF00EEAA10 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				A6CE01CF28E8C01D00EEAA10 /* Optional+Extension.swift */,
 				A64980DA28E9E63800A7FA8A /* Set+Extension.swift */,
 				A64980E228E9FB0700A7FA8A /* UserDefaults+Extension.swift */,
+				A69752FA28EA9BA900FEA825 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				A6CE01BB28E8A77500EEAA10 /* MealsVC.swift in Sources */,
 				A64980E128E9FAEE00A7FA8A /* PersistenceManager.swift in Sources */,
 				A69752F728EA8C8100FEA825 /* CategoriesVC.swift in Sources */,
+				A69752FB28EA9BA900FEA825 /* UIImageView+Extension.swift in Sources */,
 				A635132428E87F6900B55566 /* AppDelegate.swift in Sources */,
 				A6CE01CA28E8B09700EEAA10 /* MealDetailsVC.swift in Sources */,
 				A64980DF28E9FAE000A7FA8A /* UserDefaultCodable.swift in Sources */,

@@ -39,14 +39,7 @@ class MealCell: UICollectionViewCell {
         self.meal = meal
         
         titleLabel.text = meal.title
-        
-        
-        imageTask = Task {
-            if let image = try? await ImageCache.shared.fetch(meal.thumbnail) {
-                imageView.contentMode = .scaleAspectFill
-                imageView.image = image
-            }
-        }
+        imageTask = imageView.setAndCacheImage(from: meal.thumbnail)
     }
     
     

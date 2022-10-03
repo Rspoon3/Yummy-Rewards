@@ -30,6 +30,8 @@ class MealHeaderCell: UICollectionViewCell {
         super.prepareForReuse()
         imageTask?.cancel()
         imageTask = nil
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = placeholder
     }
 
     
@@ -43,15 +45,7 @@ class MealHeaderCell: UICollectionViewCell {
         areaLabel.text = meal.area
         areaLabel.isHidden = meal.area == nil
         
-        imageTask = Task {
-            if let image = try? await ImageCache.shared.fetch(meal.thumbnail) {
-                imageView.contentMode = .scaleAspectFill
-                imageView.image = image
-            } else {
-                imageView.contentMode = .scaleAspectFit
-                imageView.image = placeholder
-            }
-        }
+        imageTask = imageView.setAndCacheImage(from: meal.thumbnail)
     }
     
     

@@ -37,14 +37,7 @@ class CategoryCell: UICollectionViewCell {
     //MARK: - Public Funcitons
     func configure(category: Category){
         titleLabel.text = category.title
-        
-        
-        imageTask = Task {
-            if let image = try? await ImageCache.shared.fetch(category.thumbnail) {
-                imageView.contentMode = .scaleAspectFill
-                imageView.image = image
-            }
-        }
+        imageTask = imageView.setAndCacheImage(from: category.thumbnail)
     }
     
     
