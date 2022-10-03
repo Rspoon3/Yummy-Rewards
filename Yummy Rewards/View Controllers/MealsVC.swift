@@ -7,11 +7,13 @@
 
 import UIKit
 import Networking
+import Combine
 
 
 class MealsVC: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Meal>! = nil
     private var collectionView: UICollectionView! = nil
+    private var cancellables = Set<AnyCancellable>()
     private var meals = [Meal]()
     private var viewType: ViewType
     private let spinner = YummySpinner()
@@ -47,15 +49,7 @@ class MealsVC: UIViewController {
         configureCollectionView()
         configureDataSource()
         configureForViewType()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if case .favorites = viewType {
-            meals = PersistenceManager.shared.favoriteMeals
-            applySnapshot(meals: meals, animated: false)
-        }
+        configureFavoritesSubscriptionIfNeeded()
     }
     
     private func configureNavBar() {
@@ -152,6 +146,20 @@ class MealsVC: UIViewController {
             placeholder.addTo(view)
         } else {
             placeholder.removeFromSuperview()
+        }
+    }
+    
+    
+    //MARK: - Private Helpers
+    private func configureFavoritesSubscriptionIfNeeded() {
+        if case .favorites = viewType {
+            PersistenceManager.shared.objectWillChange
+                .receive(on: DispatchQueue.main)
+                .eraseToAnyPublisher()
+                .sink { [weak self] in
+                    self?.applySnapshot(meals: PersistenceManager.shared.favoriteMeals,
+                                        animated: true)
+                }.store(in: &cancellables)
         }
     }
 }
