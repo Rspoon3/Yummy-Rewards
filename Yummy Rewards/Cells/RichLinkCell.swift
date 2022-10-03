@@ -10,6 +10,8 @@ import LinkPresentation
 
 
 class RichLinkCell: UICollectionViewCell {
+    
+    //MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .systemGroupedBackground
@@ -19,6 +21,8 @@ class RichLinkCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //MARK: - Public
     func configure(with metadata: LPLinkMetadata) {
         let linkView = LPLinkView(metadata: metadata)
         linkView.translatesAutoresizingMaskIntoConstraints = false

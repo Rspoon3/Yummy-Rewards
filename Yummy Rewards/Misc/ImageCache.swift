@@ -10,10 +10,8 @@ import OSLog
 
 final actor ImageCache {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ImageCache")
-    private let cache = NSCache<NSString, StatusWrapper>()
+    private let cache = NSCache<NSString, CacheStatusWrapper<UIImage>>()
     public static let shared = ImageCache()
-    
-    private init() {}
     
     enum ImageLoaderError: LocalizedError {
         case noImageData
@@ -26,19 +24,9 @@ final actor ImageCache {
         }
     }
     
-    private class StatusWrapper {
-        let status: LoaderStatus
-        
-        init(_ status: LoaderStatus) {
-            self.status = status
-        }
-    }
-
-    private enum LoaderStatus {
-        case inProgress(Task<UIImage, Error>)
-        case fetched(UIImage)
-        case failed(Error)
-    }
+    //MARK: - Initializer
+    private init() {}
+    
     
     //MARK: - Public
     func clear() {
@@ -79,16 +67,16 @@ final actor ImageCache {
         
 //        logger.debug("Starting task. Key: \(key)")
         
-        cache.setObject(StatusWrapper(.inProgress(task)), forKey: key)
+        cache.setObject(CacheStatusWrapper(.inProgress(task)), forKey: key)
         
         do {
             let image = try await task.value
-            cache.setObject(StatusWrapper(.fetched(image)), forKey: key)
+            cache.setObject(CacheStatusWrapper(.fetched(image)), forKey: key)
 //            logger.debug("Successfully finishing the task. Key: \(key)")
             return image
         } catch {
 //            logger.debug("Error fetching task. Key: \(key). Error: \(error.localizedDescription)")
-            cache.setObject(StatusWrapper(.failed(error)), forKey: key)
+            cache.setObject(CacheStatusWrapper(.failed(error)), forKey: key)
             throw error
         }
     }

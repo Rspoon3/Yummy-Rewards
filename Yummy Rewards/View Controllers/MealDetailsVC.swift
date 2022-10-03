@@ -17,6 +17,10 @@ class MealDetailsVC: UIViewController {
     private let persistenceManager = PersistenceManager.shared
     private let spinner = YummySpinner()
     
+    enum Section: String {
+        case main, instructions, ingredients, richLink
+    }
+    
     
     //MARK: - Initializer
     init(meal: Meal) {
@@ -29,10 +33,7 @@ class MealDetailsVC: UIViewController {
     }
     
     
-    enum Section: String {
-        case main, instructions, ingredients, richLink
-    }
-    
+    //MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
@@ -40,28 +41,12 @@ class MealDetailsVC: UIViewController {
         configureNavView()
         configureCollectionView()
         configureDataSource()
-        
-        Task {
-            spinner.addTo(view)
-            
-            do {
-                let response: MealResponse = try await APIService.shared.fetch(endpoint: .details(mealID: meal.id))
-                if let meal = response.meals.first {
-                    self.meal = meal
-                }
-                applyInitialSnapshot()
-            } catch {
-                presentGeneralAlert(for: error)
-            }
-            
-            spinner.removeFromSuperview()
-        }
+        loadDetails()
     }
     
     private func configureNavView() {
         let isFavorite = persistenceManager.favoriteMeals.map(\.id).contains(meal.id)
-        print(isFavorite)
-                
+        
         navigationItem.title = meal.title
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(systemName: isFavorite ? "star.fill" : "star"),
                                                             primaryAction: .init(handler: { [weak self] _ in
@@ -116,12 +101,36 @@ class MealDetailsVC: UIViewController {
         view.addSubview(collectionView)
     }
     
+    
+    //MARK: - Private Helpers
+    private func loadDetails() {
+        Task {
+            spinner.addTo(view)
+            
+            do {
+                let response: MealResponse = try await APIService.shared.fetch(endpoint: .details(mealID: meal.id))
+                if let meal = response.meals.first {
+                    self.meal = meal
+                }
+                applyInitialSnapshot()
+            } catch {
+                presentGeneralAlert(for: error)
+            }
+            
+            spinner.removeFromSuperview()
+        }
+    }
+    
+    
+    //MARK: - Data Source
     private func createHeaderRegistration() -> UICollectionView.SupplementaryRegistration<UICollectionViewListCell> {
         UICollectionView.SupplementaryRegistration <UICollectionViewListCell>(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] (headerView, elementKind, indexPath) in
             guard
                 let self = self,
                 let section = self.dataSource?.snapshot().sectionIdentifiers[indexPath.section]
-            else { fatalError() }
+            else {
+                return
+            }
             
             var configuration: UIListContentConfiguration!
             configuration = UIListContentConfiguration.prominentInsetGroupedHeader()
@@ -132,13 +141,15 @@ class MealDetailsVC: UIViewController {
     }
     
     private func configureDataSource() {
+        let headerRegistration = createHeaderRegistration()
+
         let textCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String> { (cell, indexPath, text) in
             var content = cell.defaultContentConfiguration()
             content.text = text
             cell.contentConfiguration = content
         }
         
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Ingredient> { [weak self] (cell, indexPath, ingredient) in
+        let ingredientCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Ingredient> { [weak self] (cell, indexPath, ingredient) in
             guard let self = self else { return }
             let hasUsed = self.usedIngredients.contains(ingredient)
             
@@ -166,7 +177,7 @@ class MealDetailsVC: UIViewController {
         
         dataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
             if let ingredient = item as? Ingredient {
-                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: ingredient)
+                return collectionView.dequeueConfiguredReusableCell(using: ingredientCellRegistration, for: indexPath, item: ingredient)
             } else if let metadata = item as? LPLinkMetadata {
                 return collectionView.dequeueConfiguredReusableCell(using: metaDataCellRegistration, for: indexPath, item: metadata)
             } else if let text = item as? String {
@@ -177,10 +188,6 @@ class MealDetailsVC: UIViewController {
                 fatalError("This cell is not supported")
             }
         }
-
-        
-        let headerRegistration = createHeaderRegistration()
-        
         
         dataSource?.supplementaryViewProvider = { [weak self] (view, kind, index) in
             return self?.collectionView.dequeueConfiguredReusableSupplementary(using:headerRegistration, for: index)
@@ -202,12 +209,13 @@ class MealDetailsVC: UIViewController {
             snapshot.appendSections([.ingredients])
             snapshot.appendItems(ingredients)
         }
+        
         dataSource.apply(snapshot, animatingDifferences: false)
 
         
         if let youtube = meal.youtube,
            let url = URL(string: youtube)  {
-            Task {
+            Task(priority: .userInitiated) {
                 let contents = try String(contentsOf: url, encoding: .ascii)
                 guard !contents.contains("playerErrorMessageRenderer") else {
                     return
@@ -226,7 +234,7 @@ class MealDetailsVC: UIViewController {
         
         if let source = meal.source,
            let url = URL(string: source)  {
-            Task {
+            Task(priority: .userInitiated) {
                 let metadata = try await LPMetadataProvider().startFetchingMetadata(for: url)
                 
                 if !snapshot.sectionIdentifiers.contains(.richLink){
@@ -240,6 +248,8 @@ class MealDetailsVC: UIViewController {
     }
 }
 
+
+//MARK: - UICollectionViewDelegate
 extension MealDetailsVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)

@@ -20,17 +20,4 @@ extension UIViewController{
             self.present(alertController, animated: true)
         }
     }
-    
-    func presentGeneralAlert(title: String, message: String){
-        DispatchQueue.main.async{
-            let okAction = UIAlertAction(title: "Okay", style: .cancel)
-            let alertController = UIAlertController(title: title,
-                                                    message: message,
-                                                    preferredStyle: .alert)
-            
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true)
-        }
-    }
 }

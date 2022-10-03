@@ -52,7 +52,6 @@ class CategoryCell: UICollectionViewCell {
         imageView.image = placeholder
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         titleLabel.numberOfLines = 2
         titleLabel.font = .preferredFont(forTextStyle: .headline)
         

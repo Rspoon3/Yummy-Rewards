@@ -9,25 +9,13 @@ import Foundation
 import Networking
 
 final actor MealsCache {
-    private let cache = NSCache<NSString, StatusWrapper>()
+    private let cache = NSCache<NSString, CacheStatusWrapper<MealResponse>>()
     public static let shared = MealsCache()
     
+    
+    //MARK: - Initializer
     private init() {}
     
-    
-    private class StatusWrapper {
-        let status: LoaderStatus
-        
-        init(_ status: LoaderStatus) {
-            self.status = status
-        }
-    }
-
-    private enum LoaderStatus {
-        case inProgress(Task<MealResponse, Error>)
-        case fetched(MealResponse)
-        case failed(Error)
-    }
     
     //MARK: - Public
     func clear() {
@@ -55,14 +43,14 @@ final actor MealsCache {
         }
         
         
-        cache.setObject(StatusWrapper(.inProgress(task)), forKey: key)
+        cache.setObject(CacheStatusWrapper(.inProgress(task)), forKey: key)
         
         do {
             let response = try await task.value
-            cache.setObject(StatusWrapper(.fetched(response)), forKey: key)
+            cache.setObject(CacheStatusWrapper(.fetched(response)), forKey: key)
             return response
         } catch {
-            cache.setObject(StatusWrapper(.failed(error)), forKey: key)
+            cache.setObject(CacheStatusWrapper(.failed(error)), forKey: key)
             throw error
         }
     }

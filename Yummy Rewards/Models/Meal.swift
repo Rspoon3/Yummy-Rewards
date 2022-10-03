@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct MealResponse: Decodable {
-    let meals: [Meal]
-    
-    //MARK: - Preview Data
-    static let previewData = Bundle.main.decode(MealResponse.self,
-                                                from: "mealsResponse.json")
-}
-
 struct Meal: Codable, Hashable {
     let id: String
     let title: String

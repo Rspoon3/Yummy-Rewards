@@ -17,7 +17,6 @@ class CategoriesVC: UIViewController {
     private let placeholder = EmptyPlaceholderView(symbol: "square.grid.2x2",
                                                    text: "No meals available")
     
-    
     private enum Section: String {
         case main
     }
@@ -38,6 +37,25 @@ class CategoriesVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func configureSearchController(){
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: .yummyGrid)
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = self
+        collectionView.isUserInteractionEnabled = false
+        view.addSubview(collectionView)
+    }
+    
+
+    //MARK: - Networking
     private func loadCategories() {
         spinner.addTo(view)
 
@@ -55,44 +73,8 @@ class CategoriesVC: UIViewController {
         }
     }
     
-    private func configureSearchController(){
-        let searchController = UISearchController()
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search"
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-    }
     
-    private func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
-                                                            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
-            let contentSize = layoutEnvironment.container.effectiveContentSize
-            let columns = CGFloat(Int(contentSize.width / 250))
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / max(2, columns)),
-                                                  heightDimension: .estimated(100))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .estimated(100))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = 20
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-            return section
-        }
-        return layout
-    }
-    
-    private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .systemBackground
-        collectionView.delegate = self
-        collectionView.isUserInteractionEnabled = false
-        view.addSubview(collectionView)
-    }
-    
+    //MARK: - Data Source
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<CategoryCell, Category> { (cell, indexPath, category) in
             cell.configure(category: category)
@@ -142,6 +124,7 @@ class CategoriesVC: UIViewController {
 }
 
 
+//MARK: - UISearchResultsUpdating
 extension CategoriesVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
@@ -154,6 +137,8 @@ extension CategoriesVC: UISearchResultsUpdating {
     }
 }
 
+
+//MARK: - UICollectionViewDelegate
 extension CategoriesVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
@@ -166,4 +151,3 @@ extension CategoriesVC: UICollectionViewDelegate {
         navigationController?.pushViewController(details, animated: true)
     }
 }
-

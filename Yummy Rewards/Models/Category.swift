@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct CategoryResponse: Decodable {
-    let categories: [Category]
-    
-    //MARK: - Preview Data
-    static let previewData = Bundle.main.decode(CategoryResponse.self,
-                                                from: "categoriesResponse.json")
-}
-
 struct Category: Decodable, Equatable, Hashable {
     let id: String
     let title: String

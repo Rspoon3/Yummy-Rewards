@@ -15,6 +15,8 @@ class PaddedLabel: UILabel {
     let leftInset:   CGFloat
     let rightInset:  CGFloat
     
+    
+    //MARK: - Initializer
     init(padding: CGFloat) {
         topInset    = padding
         bottomInset = padding
@@ -35,6 +37,8 @@ class PaddedLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //MARK: - View
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: rect.inset(by: insets))

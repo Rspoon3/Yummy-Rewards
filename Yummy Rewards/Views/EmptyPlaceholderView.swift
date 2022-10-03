@@ -8,8 +8,8 @@
 import UIKit
 
 class EmptyPlaceholderView: UIView {
-    let symbol: String
-    let text: String
+    private let symbol: String
+    private let text: String
     
     
     //MARK: - Initializer
@@ -25,6 +25,8 @@ class EmptyPlaceholderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //MARK: - Public Helpers
     func addTo(_ view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(self)

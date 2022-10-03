@@ -18,7 +18,6 @@ class MealsVC: UIViewController {
     private let placeholder = EmptyPlaceholderView(symbol: "fork.knife",
                                                    text: "No meals available")
     
-    
     private enum Section: String {
         case main
     }
@@ -79,23 +78,6 @@ class MealsVC: UIViewController {
         }
     }
     
-    private func loadMealsFor(_ category: Category) {
-        spinner.addTo(view)
-        
-        Task {
-            do {
-                let response = try await MealsCache.shared.fetchMeals(for: category)
-                meals = response.meals
-                applySnapshot(meals: response.meals, animated: false)
-            } catch {
-                placeholder.addTo(view)
-                presentGeneralAlert(for: error)
-            }
-        }
-        
-        spinner.removeFromSuperview()
-    }
-    
     private func configureForFavorites() {
         let favorites = PersistenceManager.shared.favoriteMeals
         
@@ -115,29 +97,8 @@ class MealsVC: UIViewController {
         navigationItem.searchController = searchController
     }
     
-    private func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
-                                                            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
-            let contentSize = layoutEnvironment.container.effectiveContentSize
-            let columns = CGFloat(Int(contentSize.width / 250))
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / max(2, columns)),
-                                                  heightDimension: .estimated(100))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .estimated(100))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = 20
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-            return section
-        }
-        return layout
-    }
-    
     private func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: .yummyGrid)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
@@ -145,6 +106,27 @@ class MealsVC: UIViewController {
         view.addSubview(collectionView)
     }
     
+    
+    //MARK: - Networking
+    private func loadMealsFor(_ category: Category) {
+        spinner.addTo(view)
+        
+        Task {
+            do {
+                let response = try await MealsCache.shared.fetchMeals(for: category)
+                meals = response.meals
+                applySnapshot(meals: response.meals, animated: false)
+            } catch {
+                placeholder.addTo(view)
+                presentGeneralAlert(for: error)
+            }
+        }
+        
+        spinner.removeFromSuperview()
+    }
+    
+    
+    //MARK: - Data Source
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<MealCell, Meal> { (cell, indexPath, meal) in
             cell.configure(meal: meal)
@@ -175,6 +157,7 @@ class MealsVC: UIViewController {
 }
 
 
+//MARK: - UISearchResultsUpdating
 extension MealsVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
@@ -187,6 +170,8 @@ extension MealsVC: UISearchResultsUpdating {
     }
 }
 
+
+//MARK: - UICollectionViewDelegate
 extension MealsVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)

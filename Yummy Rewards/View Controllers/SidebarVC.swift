@@ -105,6 +105,7 @@ class SidebarVC: UIViewController {
     
     private func applyCategoriesSnapshots() {
         guard let categories else { return }
+        
         var categoriesSnapshot = NSDiffableDataSourceSectionSnapshot<SidebarItem>()
         let rootItem = SidebarItem.categories
         let sidebarItems = categories.map{ SidebarItem(title: $0.title, symbol: "fork.knife")}
@@ -118,6 +119,7 @@ class SidebarVC: UIViewController {
     
     private func show(_ category: Category) {
         guard selectedCategory != category else { return }
+        
         selectedCategory = category
         let nav = UINavigationController(rootViewController: MealsVC(viewType: .category(category: category)))
         navigationController?.showDetailViewController(nav, sender: nil)
@@ -143,6 +145,8 @@ class SidebarVC: UIViewController {
     }
 }
 
+
+//MARK: - UICollectionViewDelegate
 extension SidebarVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard
@@ -170,6 +174,7 @@ extension SidebarVC: UICollectionViewDelegate {
 }
 
 
+//MARK: - UICollectionViewDropDelegate
 extension SidebarVC: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         _ = coordinator.session.loadObjects(ofClass: String.self) { strings in
