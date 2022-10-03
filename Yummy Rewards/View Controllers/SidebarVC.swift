@@ -136,7 +136,7 @@ class SidebarVC: UIViewController {
                 }
                 
                 for try await _ in group {
-                    print("Finished fetching all categories in the background")
+//                    print("Finished fetching all categories in the background")
                 }
             }
         }

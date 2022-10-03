@@ -208,6 +208,11 @@ class MealDetailsVC: UIViewController {
         if let youtube = meal.youtube,
            let url = URL(string: youtube)  {
             Task {
+                let contents = try String(contentsOf: url, encoding: .ascii)
+                guard !contents.contains("playerErrorMessageRenderer") else {
+                    return
+                }
+                
                 let metadata = try await LPMetadataProvider().startFetchingMetadata(for: url)
                 
                 if !snapshot.sectionIdentifiers.contains(.richLink){
