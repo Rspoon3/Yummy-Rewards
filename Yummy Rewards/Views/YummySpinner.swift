@@ -37,7 +37,7 @@ class YummySpinner: UIView {
     private func addViews() {
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.color = .systemBlue
+        spinner.color = .tintColor
         spinner.startAnimating()
         
         backgroundColor = .systemGroupedBackground
