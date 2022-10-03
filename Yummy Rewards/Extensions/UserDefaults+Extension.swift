@@ -9,6 +9,6 @@ import Foundation
 
 extension UserDefaults {
     static var shared: UserDefaults {
-        return UserDefaults(suiteName: "group.com.buildinginbinary.Yummy-Meals")!
+        return UserDefaults(suiteName: "group.com.buildinginbinary.Yummy-Rewards")!
     }
 }
