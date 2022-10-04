@@ -22,6 +22,8 @@ class SplitVC: UIViewController {
         split.view.frame = view.bounds
         split.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         split.didMove(toParent: self)
+        split.preferredSplitBehavior = .tile
+        split.preferredDisplayMode = .oneBesideSecondary
         
         split.setViewController(SidebarVC(), for: .primary)
         split.setViewController(SelectCategoryVC(), for: .secondary)

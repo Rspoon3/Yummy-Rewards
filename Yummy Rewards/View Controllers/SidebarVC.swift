@@ -63,6 +63,8 @@ class SidebarVC: UIViewController {
                 
                 if let first = categories?.first {
                     show(first)
+
+                    collectionView.selectItem(at: .init(item: 1, section: 1), animated: false, scrollPosition: .bottom)
                     fetchAllCategoriesInBackground()
                 }
             } catch {
