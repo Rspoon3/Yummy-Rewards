@@ -82,6 +82,7 @@ class SidebarVC: UIViewController {
             
             if let symbol = item.symbol {
                 content.image = .init(systemName: symbol)
+                cell.accessories = []
             } else {
                 content.textProperties.font = .preferredFont(forTextStyle: .headline)
                 cell.accessories = [.outlineDisclosure(options: .init(style: .header))]
