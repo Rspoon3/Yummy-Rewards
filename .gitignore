@@ -1,0 +1,11 @@
+xcuserdata
+xcuserdata/*
+*.xcscmblueprint
+*.xccheckout
+*.xcworkspace
+/.DS_Store
+Pods
+*.ipa
+*.xcarchive
+*.dSYM.zip
+IPA
