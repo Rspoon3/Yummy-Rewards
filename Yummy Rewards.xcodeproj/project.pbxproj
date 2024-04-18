@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		948E0AFA2BD1635300A3EE7A /* ImageCacheV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E0AF92BD1635300A3EE7A /* ImageCacheV2.swift */; };
+		948E0AFC2BD1678700A3EE7A /* SidebarVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E0AFB2BD1678700A3EE7A /* SidebarVCViewModel.swift */; };
 		A635132428E87F6900B55566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132328E87F6900B55566 /* AppDelegate.swift */; };
 		A635132628E87F6900B55566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132528E87F6900B55566 /* SceneDelegate.swift */; };
 		A635132828E87F6900B55566 /* SplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A635132728E87F6900B55566 /* SplitVC.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		948E0AF92BD1635300A3EE7A /* ImageCacheV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheV2.swift; sourceTree = "<group>"; };
+		948E0AFB2BD1678700A3EE7A /* SidebarVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarVCViewModel.swift; sourceTree = "<group>"; };
 		A635132028E87F6900B55566 /* Yummy Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yummy Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A635132328E87F6900B55566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A635132528E87F6900B55566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		948E0AFD2BD1678C00A3EE7A /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */,
+				948E0AFB2BD1678700A3EE7A /* SidebarVCViewModel.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
 		A635131728E87F6900B55566 = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +245,7 @@
 				A6CE01BA28E8A77500EEAA10 /* MealsVC.swift */,
 				A6CE01D628E8DC3300EEAA10 /* SearchVC.swift */,
 				A64980E628EA128500A7FA8A /* SelectCategoryVC.swift */,
-				A6CE01AD28E89B1A00EEAA10 /* SidebarVC.swift */,
+				948E0AFD2BD1678C00A3EE7A /* Sidebar */,
 				A635132728E87F6900B55566 /* SplitVC.swift */,
 				A69752F428EA8B5500FEA825 /* TabVC.swift */,
 			);
@@ -245,6 +258,7 @@
 				A635132328E87F6900B55566 /* AppDelegate.swift */,
 				A697531B28EAA28700FEA825 /* CacheStatusWrapper.swift */,
 				A6CE01D128E8C35A00EEAA10 /* ImageCache.swift */,
+				948E0AF92BD1635300A3EE7A /* ImageCacheV2.swift */,
 				A69752F228EA88C100FEA825 /* MealsCache.swift */,
 				A64980E028E9FAEE00A7FA8A /* PersistenceManager.swift */,
 				A635132528E87F6900B55566 /* SceneDelegate.swift */,
@@ -325,7 +339,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					A635131F28E87F6900B55566 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -400,6 +414,7 @@
 				A69752F928EA8F0F00FEA825 /* CategoryCell.swift in Sources */,
 				A6CE01C428E8AC5C00EEAA10 /* Sequence+Extension.swift in Sources */,
 				A64980DD28E9E76600A7FA8A /* RichLinkCell.swift in Sources */,
+				948E0AFC2BD1678700A3EE7A /* SidebarVCViewModel.swift in Sources */,
 				A6CE01BB28E8A77500EEAA10 /* MealsVC.swift in Sources */,
 				A64980E128E9FAEE00A7FA8A /* PersistenceManager.swift in Sources */,
 				A69752F728EA8C8100FEA825 /* CategoriesVC.swift in Sources */,
@@ -407,6 +422,7 @@
 				A635132428E87F6900B55566 /* AppDelegate.swift in Sources */,
 				A6CE01CA28E8B09700EEAA10 /* MealDetailsVC.swift in Sources */,
 				A64980DF28E9FAE000A7FA8A /* UserDefaultCodable.swift in Sources */,
+				948E0AFA2BD1635300A3EE7A /* ImageCacheV2.swift in Sources */,
 				A697531A28EAA24100FEA825 /* MealResponse.swift in Sources */,
 				A6CE01D728E8DC3300EEAA10 /* SearchVC.swift in Sources */,
 				A69752F128EA249C00FEA825 /* PaddedLabel.swift in Sources */,
@@ -465,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -497,6 +514,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -525,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -557,6 +576,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -591,7 +611,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,7 +641,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

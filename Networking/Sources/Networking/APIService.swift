@@ -8,8 +8,12 @@
 import Foundation
 import Combine
 
+public protocol APIServiceProtocol {
+    func fetch<T: Decodable>(endpoint: Endpoint) async throws -> T
+    func publisher<T: Decodable>(endpoint: Endpoint, type: T.Type) -> AnyPublisher<T, Error>
+}
 
-public struct APIService {
+public struct APIService: APIServiceProtocol {
     private let apiVersion = "v1"
     private let apiKey = "1"
     private let decoder = JSONDecoder()

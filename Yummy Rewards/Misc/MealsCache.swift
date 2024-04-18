@@ -8,7 +8,12 @@
 import Foundation
 import Networking
 
-final actor MealsCache {
+protocol MealsCacheProtocol: Actor {
+    func clear()
+    func fetchMeals(for category: Category) async throws -> MealResponse
+}
+
+final actor MealsCache: MealsCacheProtocol {
     private let cache = NSCache<NSString, CacheStatusWrapper<MealResponse>>()
     public static let shared = MealsCache()
     
@@ -18,7 +23,7 @@ final actor MealsCache {
     
     
     //MARK: - Public
-    func clear() {
+    func clear(){
         cache.removeAllObjects()
     }
 
@@ -41,7 +46,6 @@ final actor MealsCache {
             
             return response
         }
-        
         
         cache.setObject(CacheStatusWrapper(.inProgress(task)), forKey: key)
         
