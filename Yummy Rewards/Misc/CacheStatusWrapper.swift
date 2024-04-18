@@ -8,15 +8,15 @@
 import Foundation
 
 class CacheStatusWrapper<T> {
-    let status: Status<T>
+    let status: CacheStatus<T>
     
-    init(_ status: Status<T>) {
+    init(_ status: CacheStatus<T>) {
         self.status = status
     }
-    
-    enum Status<T> {
-        case inProgress(Task<T, Error>)
-        case fetched(T)
-        case failed(Error)
-    }
+}
+
+enum CacheStatus<T> {
+    case inProgress(Task<T, Error>)
+    case fetched(T)
+    case failed(Error)
 }
