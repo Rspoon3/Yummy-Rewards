@@ -64,7 +64,9 @@ class MealCell: UICollectionViewCell {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 10
+        
+        let random = Int.random(in: 0...10)
+        stackView.spacing = random.isMultiple(of: 3) ? -8 : 10
         
         contentView.addSubview(stackView)
         
@@ -90,9 +92,9 @@ extension MealCell: UIContextMenuInteractionDelegate {
         let favorite = UIAction(title: isFavorite ? "Unfavorite" : "Favorite",
                                 image: UIImage(systemName: isFavorite ? "star.fill" : "star")) { action in
             if isFavorite {
-                PersistenceManager.shared.favoriteMeals.removeAll(where: {$0.id == meal.id})
+//                PersistenceManager.shared.favoriteMeals.removeAll(where: {$0.id == meal.id})
             } else {
-                PersistenceManager.shared.favoriteMeals.append(meal)
+//                PersistenceManager.shared.favoriteMeals.append(meal)
             }
         }
         

@@ -13,6 +13,6 @@ struct SidebarItem: Hashable, Identifiable {
     let symbol: String?
     
     static let search = SidebarItem(title: "Search", symbol: "magnifyingglass")
-    static let favorites = SidebarItem(title: "Favorites", symbol: "star")
+    static let favorites = SidebarItem(title: "Favorites", symbol: "heart")
     static let categories = SidebarItem(title: "Categories", symbol: nil)
 }

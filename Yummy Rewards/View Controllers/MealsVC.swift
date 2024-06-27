@@ -17,7 +17,7 @@ class MealsVC: UIViewController {
     private var meals = [Meal]()
     private var viewType: ViewType
     private let spinner = YummySpinner()
-    private let placeholder = EmptyPlaceholderView(symbol: "fork.knife",
+    private let placeholder = EmptyPlaceholderView(symbol: "doc.on.doc",
                                                    text: "No meals available")
     
     private enum Section: String {
@@ -55,7 +55,7 @@ class MealsVC: UIViewController {
     private func configureNavBar() {
         switch viewType {
         case .favorites:
-            navigationItem.title = "Favorites"
+            navigationItem.title = "Favorates"
         case .category(let category):
             navigationItem.title = category.title
         }

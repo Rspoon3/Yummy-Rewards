@@ -254,6 +254,8 @@ extension MealDetailsVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
         
+        if indexPath.item == 2 { exit(1) }
+        
         if let ingredient = dataSource.itemIdentifier(for: indexPath) as? Ingredient {
             usedIngredients.insertOrRemove(ingredient)
             

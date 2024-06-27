@@ -36,7 +36,7 @@ class SearchVC: UIViewController {
     
     private func configureNavBar() {
         navigationItem.title = "Search"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.italicSystemFont(ofSize: 13)]
     }
     
     private func configureSearchController(){
@@ -44,6 +44,7 @@ class SearchVC: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.searchTextField.text = UserDefaults.shared.string(forKey: "lastSearch")
         navigationItem.searchController = searchController
     }
     
@@ -80,9 +81,9 @@ class SearchVC: UIViewController {
         collectionView.isUserInteractionEnabled = !meals.isEmpty
         
         if meals.isEmpty {
-            placeholder.addTo(view)
-        } else {
             placeholder.removeFromSuperview()
+        } else {
+            placeholder.addTo(view)
         }
     }
     
@@ -90,12 +91,16 @@ class SearchVC: UIViewController {
     //MARK: - Private Helpers
     private func configureCancellables() {
         $searchText
+            .dropFirst()
             .debounce(for: .milliseconds(150), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .flatMap { searchText -> AnyPublisher<[Meal], Never> in
                 guard let searchText, !searchText.isEmpty else {
                     return Just([]).eraseToAnyPublisher()
                 }
+                
+                UserDefaults.shared.set(searchText, forKey: "lastSearch")
+                
                 return APIService.shared.publisher(endpoint: .searchName(mealName: searchText), type: MealResponse.self)
                     .map(\.meals)
                     .replaceError(with: [])

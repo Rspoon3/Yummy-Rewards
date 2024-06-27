@@ -26,6 +26,7 @@ class RichLinkCell: UICollectionViewCell {
     func configure(with metadata: LPLinkMetadata) {
         let linkView = LPLinkView(metadata: metadata)
         linkView.translatesAutoresizingMaskIntoConstraints = false
+        linkView.isUserInteractionEnabled = false
         contentView.addSubview(linkView)
         
         NSLayoutConstraint.activate([

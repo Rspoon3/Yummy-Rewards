@@ -59,11 +59,13 @@ class MealHeaderCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         
         for label in  [categoryLabel, areaLabel] {
+            let backgroundColor = UIColor.tintColor.withAlphaComponent(0.75)
+            let random = Int.random(in: 0...3)
             label.font = .preferredFont(forTextStyle: .headline)
-            label.backgroundColor = .tintColor.withAlphaComponent(0.75)
+            label.backgroundColor = backgroundColor
             label.layer.masksToBounds = true
             label.layer.cornerRadius = 4
-            label.textColor = .white
+            label.textColor = random.isMultiple(of: 3) ? .white : backgroundColor
         }
         
         let tagsStack = UIStackView(arrangedSubviews: [categoryLabel, areaLabel])

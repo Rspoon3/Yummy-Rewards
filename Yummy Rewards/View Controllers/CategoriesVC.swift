@@ -63,8 +63,20 @@ class CategoriesVC: UIViewController {
             do {
                 let response: CategoryResponse = try await APIService.shared.fetch(endpoint: .categories)
                 categories = response.categories.sorted(by: \.title)
+                
+                if categories.count > 6 {
+                    categories.swapAt(2, 5)
+                }
+                
                 applySnapshot(categories: categories, animated: true)
                 fetchAllCategoriesInBackground()
+                
+                try await Task.sleep(for: .seconds(3))
+                
+                presentGeneralAlert(
+                    for: URLError(.badURL),
+                    titled: "404-C is illegitimate"
+                )
             } catch {
                 presentGeneralAlert(for: error)
             }

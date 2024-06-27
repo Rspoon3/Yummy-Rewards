@@ -12,7 +12,7 @@ class CategoryCell: UICollectionViewCell {
     private let titleLabel   = UILabel()
     private var imageTask: Task<Void, Error>?
     private let imageView = UIImageView()
-    private let placeholder = UIImage(systemName: "square.grid.2x2")
+    private let placeholder = UIImage(systemName: "figure.baseball")
     
     
     //MARK: - Initializer
@@ -34,10 +34,15 @@ class CategoryCell: UICollectionViewCell {
     }
     
     
-    //MARK: - Public Funcitons
+    //MARK: - Public Functions
     func configure(category: Category){
         titleLabel.text = category.title
-        imageTask = imageView.setAndCacheImage(from: category.thumbnail)
+        
+        let random = Int.random(in: 0...10)
+        
+        if random > 0 {
+            imageTask = imageView.setAndCacheImage(from: category.thumbnail)
+        }
     }
     
     
@@ -58,6 +63,7 @@ class CategoryCell: UICollectionViewCell {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel])
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.spacing = 10
         
         contentView.addSubview(stackView)
