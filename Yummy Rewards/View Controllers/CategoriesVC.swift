@@ -163,9 +163,9 @@ extension CategoriesVC: UICollectionViewDelegate {
         if random == 0 {
             let favoritesListVC = MealsVC(viewType: .favorites)
             navigationController?.pushViewController(favoritesListVC, animated: true)
+        } else {
+            let details = MealsVC(viewType: .category(category: category))
+            navigationController?.pushViewController(details, animated: true)
         }
-
-        let details = MealsVC(viewType: .category(category: category))
-        navigationController?.pushViewController(details, animated: true)
     }
 }
