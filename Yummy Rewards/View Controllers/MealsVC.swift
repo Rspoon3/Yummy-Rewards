@@ -24,7 +24,7 @@ class MealsVC: UIViewController {
         case main
     }
     
-    enum ViewType {
+    enum ViewType: Equatable, Hashable {
         case favorites
         case category(category: Category)
     }
@@ -182,11 +182,26 @@ extension MealsVC: UISearchResultsUpdating {
 //MARK: - UICollectionViewDelegate
 extension MealsVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let random = Int.random(in: 0...10)
+        guard random != 0 else { return}
+        
+        var indexPath = indexPath
+        
+        if random == 1 {
+            indexPath.item += 1
+        }
+        
         collectionView.deselectItem(at: indexPath, animated: false)
         
         if let meal = dataSource.itemIdentifier(for: indexPath) {
-            let details = MealDetailsVC(meal: meal)
-            navigationController?.pushViewController(details, animated: true)
+            Task {
+                if viewType == .favorites {
+                    try await Task.sleep(for: .seconds(3))
+                }
+                
+                let details = MealDetailsVC(meal: meal)
+                navigationController?.pushViewController(details, animated: true)
+            }
         }
     }
 }
