@@ -1,3 +1,6 @@
+![Promo image](Images/promo.png)
+
+
 ## Descipriton
 Yummy Rewards is an dedicated application for Fetch Rewards QA team to asses potential canidates.
 
