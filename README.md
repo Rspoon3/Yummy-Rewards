@@ -2,7 +2,7 @@
 
 
 ## Descipriton
-Yummy Rewards is a dedicated application for Fetch Rewards QA team to asses potential candidates.
+Yummy Rewards is a dedicated application for Fetch Rewards QA team to assess potential candidates.
 
 
 ## Known Bugs
